@@ -41,21 +41,23 @@ function salvarUser(){
 function criaLista(){
     let tabela = document.getElementById("tabela").innerHTML = "<tr><th>Nome Usuário</th><th>E-mail</th><th>Ações</th></tr>";
     for(let i=0; i<= (dadosLista.length - 1);i++){
-        tabela += "<tr><td>" + dadosLista[i].nome + "</td><td><button type='button' onclick='editar(parentNode.parentNode.rowIndex)'>Editar</button><button type='button' onclick='excluir(parentNode.parentNode.rowIndex)'>Excluir</button></td></tr>";
+        tabela += "<tr><td>" + dadosLista[i].nome + "</td><td>" + dadosLista[i].email + "</td><td><button type='button' onclick='editar(parentNode.parentNode.rowIndex)'>Editar</button><button type='button' onclick='excluir(parentNode.parentNode.rowIndex)'>Excluir</button></td></tr>";
         document.getElementById("tabela").innerHTML = tabela;
     }
 
 }
 
-// FUNÇÃO PARA EDITAR NOMES DE LISTA
+// FUNÇÃO PARA EDITAR NOMES DE LISTA //Terminar isso
 function editar(i){
     document.getElementById("nomeUser").value = dadosLista[(i - 1)];dadosLista.splice(dadosLista[(i - 1)], 1);
 }
 
-// FUNÇÃO QUE EXCLUI NOME DA LISTA
+// FUNÇÃO QUE EXCLUI NOME DA LISTA //Terminar isso
 function excluir(i){ // CRIOU UMA FUNÇÃO EXCLUIR
     dadosLista.splice((i - 1), 1);
     document.getElementById('tabela').deleteRow(i);
 }
 
 //deleteRow = deletar linha
+
+//arrumar a validação do email
