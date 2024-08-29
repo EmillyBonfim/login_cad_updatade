@@ -18,17 +18,19 @@ var dadosLista = []; // ARMAZENA A LISTA DE NOMES INSERIDOS
 
 function salvarUser(){
     let nomeUser = document.getElementById("nomeUser").value; // Declara variáveis limitando seu escopo no bloco
+    let emailUser = document.getElementById("emailUser").value;
 
-    if(nomeUser){
+    if(nomeUser && emailUser){
 
-        dadosLista.push(nomeUser); // Adicionou um ou mais elementos ao final do array e retornou o novo comprimento desse array.
+        dadosLista.push({nome: nomeUser, email: emailUser}); // Adicionou um ou mais elementos ao final do array e retornou o novo comprimento desse array.
         //console.log(dadosLista);
         criaLista();
         document.getElementById("nomeUser").value = ""; // Após envio do campo de Login, o input fica vazio
+        document.getElementById("emailUser").value = ""; // Após envio do campo de Login, o input fica vazio
 
 
     }else{
-        alert("Favor informar o nome para cadastro"); // Caso o usuário não preencha o campo ele aparecera um Pop-up para preenchimento completo do cadastro.
+        alert("Favor informar o Usuário e Email"); // Caso o usuário não preencha o campo ele aparecera um Pop-up para preenchimento completo do cadastro.
     }
 }
 
@@ -37,23 +39,25 @@ function salvarUser(){
 // <td> = criar a coluna | <tr> = criar a linha |<th> = cabeçalho da tabela| += = oque estiver dentro da tabela fica, mais adiciona mais algum item há tabela.
 
 function criaLista(){
-    let tabela = document.getElementById("tabela").innerHTML = "<tr><th>Nome Usuário</th><th>Ações</th></tr>";
+    let tabela = document.getElementById("tabela").innerHTML = "<tr><th>Nome Usuário</th><th>E-mail</th><th>Ações</th></tr>";
     for(let i=0; i<= (dadosLista.length - 1);i++){
-        tabela += "<tr><td>" + dadosLista[i] + "</td><td><button type='button' onclick='editar(parentNode.parentNode.rowIndex)'>Editar</button><button type='button' onclick='excluir(parentNode.parentNode.rowIndex)'>Excluir</button></td></tr>";
+        tabela += "<tr><td>" + dadosLista[i].nome + "</td><td>" + dadosLista[i].email + "</td><td><button type='button' onclick='editar(parentNode.parentNode.rowIndex)'>Editar</button><button type='button' onclick='excluir(parentNode.parentNode.rowIndex)'>Excluir</button></td></tr>";
         document.getElementById("tabela").innerHTML = tabela;
     }
 
 }
 
-// FUNÇÃO PARA EDITAR NOMES DE LISTA
+// FUNÇÃO PARA EDITAR NOMES DE LISTA //Terminar isso
 function editar(i){
     document.getElementById("nomeUser").value = dadosLista[(i - 1)];dadosLista.splice(dadosLista[(i - 1)], 1);
 }
 
-// FUNÇÃO QUE EXCLUI NOME DA LISTA
+// FUNÇÃO QUE EXCLUI NOME DA LISTA //Terminar isso
 function excluir(i){ // CRIOU UMA FUNÇÃO EXCLUIR
     dadosLista.splice((i - 1), 1);
     document.getElementById('tabela').deleteRow(i);
 }
 
 //deleteRow = deletar linha
+
+//arrumar a validação do email
