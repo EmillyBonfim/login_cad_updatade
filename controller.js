@@ -50,6 +50,7 @@ function criaLista(){
 // FUNÇÃO PARA EDITAR NOMES DE LISTA //Terminar isso
 function editar(i){
     document.getElementById("nomeUser").value = dadosLista[(i - 1)];dadosLista.splice(dadosLista[(i - 1)], 1);
+    document.getElementById("emailUser").value = dadosLista[(i - 1)];dadosLista.splice(dadosLista[(i - 1)], 1);
 }
 
 // FUNÇÃO QUE EXCLUI NOME DA LISTA //Terminar isso
