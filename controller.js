@@ -4,7 +4,9 @@ function acessar() { // CRIA UMA FUNÇÃO  QUE VALIDA OQUE FOI ESCRITO NOS CAMPO
     let loginEmail = document.getElementById("loginEmail").value;
     let loginSenha = document.getElementById("loginSenha").value;
 
-    if (!loginEmail || !loginSenha) {
+    if (loginEmail == "" || loginEmail.indexOf("@") == -1 || loginEmail.indexOf(".") == -1) {
+        alert("Por favor, informe um e-mail válido");
+    }else if (!loginEmail || !loginSenha) {
         alert("Favor preencher todos os campos"); // Mostra Pop-up caso usuário não preencha corretamente os campos de Login.
     } else {
         //alert("Campos preenchidos com sucesso");
@@ -49,7 +51,7 @@ function criaLista() {
 
 }
 
-// FUNÇÃO PARA EDITAR NOMES DE LISTA //Terminar isso
+// FUNÇÃO PARA EDITAR NOMES DE LISTA 
 function editar(i) {
     document.getElementById("nomeUser").value = dadosLista[(i - 1)].nome;
 
@@ -58,7 +60,7 @@ function editar(i) {
     dadosLista.splice(dadosLista[(i - 1)], 1).email;
 }
 
-// FUNÇÃO QUE EXCLUI NOME DA LISTA //Terminar isso
+// FUNÇÃO QUE EXCLUI NOME DA LISTA 
 function excluir(i) { // CRIOU UMA FUNÇÃO EXCLUIR
     dadosLista.splice((i - 1), 1);
     document.getElementById('tabela').deleteRow(i);
