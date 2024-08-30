@@ -1,4 +1,4 @@
-# **Página de Login Atualizada**
+# **Página de Login e Cadastro Atualizada**
 A proposta dessa atividade foi utilizar o [projeto anterior de Cadastro](https://github.com/EmillyBonfim/login-cad) e atualiza-lo adicionando novo campo de preenchimento e validações de E-mail.
 
 ## **Explicação** 
